@@ -5,19 +5,22 @@ let num4 = document.getElementById("number4")
 let num5 = document.getElementById("number5")
 let numbers = [num1, num2, num3, num4, num5]
 
-// console.log(numbers)
+// variable to get the number and print to the screen at the end
+let numClick;
 
+// function to get and change classes the number the custumer clicked
 let whatNumber = function getNumbers() {
     for (let i = 0; i < numbers.length; i++) {
         numbers[i].addEventListener("click", function () {
-            numbers[i].className = "checked";
+            numbers[i].className = "checked mousePointer";
             
             for (let a = 0; a < numbers.length; a++) {
                 if (a == i ) {
                     continue;
                 }
 
-                numbers[a].className = "unchecked";
+                numbers[a].className = "unchecked mousePointer";
+                numClick = i + 1;
             }
 
         })
@@ -26,4 +29,23 @@ let whatNumber = function getNumbers() {
 }
 
 whatNumber()
+
+// function to change screen when "SUBMIT" button is clicked
+function onSubmit() {
+    if (numClick == undefined) {
+        alert("Please select a number...");
+        return;
+    }
+
+    let mainSection = document.getElementById("mainSection");
+    let secondSection = document.getElementById("secondSection");
+    let numberSelected = document.getElementById("numberSelected");
+
+    mainSection.className = "displayOff";
+    secondSection.className = "secondSection displayOn flex";
+
+    numberSelected.textContent = numClick;
+}
+let btSubmit = document.getElementById("btSubmit");
+btSubmit.addEventListener("click", onSubmit)
 
