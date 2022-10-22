@@ -9,7 +9,7 @@ let numbers = [num1, num2, num3, num4, num5]
 let numClick;
 
 // function to get and change classes the number the custumer clicked
-let whatNumber = function getNumbers() {
+function getNumbers() {
     for (let i = 0; i < numbers.length; i++) {
         numbers[i].addEventListener("click", function () {
             numbers[i].className = "checked mousePointer";
@@ -28,7 +28,7 @@ let whatNumber = function getNumbers() {
     }
 }
 
-whatNumber()
+getNumbers()
 
 // function to change screen when "SUBMIT" button is clicked
 function onSubmit() {
