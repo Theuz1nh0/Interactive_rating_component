@@ -12,14 +12,14 @@ let numClick;
 function getNumbers() {
     for (let i = 0; i < numbers.length; i++) {
         numbers[i].addEventListener("click", function () {
-            numbers[i].className = "checked mousePointer";
+            numbers[i].className = "checked mouse-pointer";
             
             for (let a = 0; a < numbers.length; a++) {
                 if (a == i ) {
                     continue;
                 }
 
-                numbers[a].className = "unchecked mousePointer";
+                numbers[a].className = "unchecked mouse-pointer";
                 numClick = i + 1;
             }
 
@@ -41,8 +41,8 @@ function onSubmit() {
     let secondSection = document.getElementById("secondSection");
     let numberSelected = document.getElementById("numberSelected");
 
-    mainSection.className = "displayOff";
-    secondSection.className = "secondSection displayOn flex";
+    mainSection.className = "display-off";
+    secondSection.className = "second-section display-on flex";
 
     numberSelected.textContent = numClick;
 }
